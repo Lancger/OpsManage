@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ''' celery config '''
 djcelery.setup_loader()
-BROKER_URL = 'redis://192.168.88.233:6379/4'
+BROKER_URL = 'redis://192.168.56.4:6379/4'
 CELERY_RESULT_BACKEND = 'djcelery.backends.database.DatabaseBackend'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER='pickle'
@@ -57,7 +57,7 @@ CELERY_DEFAULT_ROUTING_KEY = 'default'
 
 
 
-REDSI_KWARGS_LPUSH = {"host":'192.168.88.233','port':6379,'db':3}
+REDSI_KWARGS_LPUSH = {"host":'192.168.56.4','port':6379,'db':3}
 REDSI_LPUSH_POOL = None
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -76,7 +76,7 @@ CHANNEL_LAYERS = {
     "default": {
        "BACKEND": "asgi_redis.RedisChannelLayer",  # use redis backend
        "CONFIG": {
-           "hosts": [("localhost", 6379)],  # set redis address
+           "hosts": [("192.168.56.4", 6379)],  # set redis address
            "channel_capacity": {
                                    "http.request": 1000,
                                    "websocket.send*": 10000,
@@ -159,8 +159,8 @@ DATABASES = {
         'ENGINE':'django.db.backends.mysql',
         'NAME':'opsmanage',
         'USER':'root',
-        'PASSWORD':'welliam',
-        'HOST':'192.168.88.201'                
+        'PASSWORD':'123456',
+        'HOST':'192.168.56.4'
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
@@ -188,7 +188,7 @@ MEDIA_URL = '/upload/'
 SFTP_CONF = {
              'port':22,
              'username':'root',
-             'password':'welliam',
+             'password':'123456',
              'timeout':30
              }  #修改成能sftp登陆OpsManage的账户
 
