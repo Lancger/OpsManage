@@ -69,6 +69,7 @@ urlpatterns = [
     url(r'^apps/log/$',ansible.ansible_log),
     url(r'^apps/log/(?P<model>[a-z]+)/(?P<id>[0-9]+)/$',ansible.ansible_log_view),
     url(r'^apps/playbook/upload/$',ansible.apps_upload),
+    url(r'^apps/playbook/upload_file/$', ansible.apps_upload_file),
     url(r'^apps/playbook/online/$',ansible.apps_online),
     url(r'^apps/playbook/file/(?P<pid>[0-9]+)/$',ansible.apps_playbook_file),  
     url(r'^apps/playbook/run/(?P<pid>[0-9]+)/$',ansible.apps_playbook_run),    
